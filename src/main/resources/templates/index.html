@@ -1,0 +1,115 @@
+
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<script>
+    function resetForm() {
+      document.getElementById("myForm").reset();
+    }
+</script>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        /* CSS styling for the button */
+    .reset-button {
+      background-color: #f44336; /* Red background */
+      color: white; /* White text color */
+      padding: 10px 20px; /* Padding around the button */
+      border: none; /* No border */
+      cursor: pointer; /* Cursor style on hover */
+      font-size: 16px; /* Font size */
+    }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h2 style="text-align: center;">Registration Form</h2>
+
+<form th:action="@{/save}" th:object="${register}" method="POST">
+
+<input type="hidden" name="id" th:value="${register.id}" />
+
+<div class="form-group">
+
+<label for="name">Name:</label>
+
+<input type="text" name="name" th:value="${register.name}" required>
+</div>
+<div class="form-group">
+<label for="student id">Student_id:</label>
+<input type="text" name="student_id" th:value="${register.student_id}" required>
+</div>
+
+<div class="form-group">
+<label for="collage">Collage:</label>
+<input type="text" name="collage" th:value="${register.collage}" required>
+</div>
+
+<div class="form-group">
+<label for="branch">Branch:</label>
+<input type="text" name="branch" th:value="${register.branch}" required>
+</div>
+
+<div class="form-group">
+<label for="email">Email:</label>
+<input type="text" name="email" th:value="${register.email}" required>
+</div>
+
+
+
+<div class="form-group">
+<label for="phone">Phone:</label>
+<input type="tel" name="phone" maxlength="10"  th:value="${register.phone}" required>
+</div>
+
+<button type="submit">Register</button>
+
+
+
+
+
+</form>
+</div>
+</body>
+</html>
